@@ -1,7 +1,7 @@
 /*
 Netflix Movies and TV Shows Data Analysis using SQL
 
-Skills used: Joins, CTE's, Temp Tables, Windows Functions, Aggregate Functions, Creating Views
+Skills used: Joins, CTE's, Temp Tables, Windows Functions, Aggregate Functions
 
 */
 
