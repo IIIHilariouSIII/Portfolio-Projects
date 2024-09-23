@@ -10,14 +10,14 @@ Skills used: Joins, CTE's, Temp Tables, Windows Functions, Aggregate Functions
 SELECT release_year, COUNT(*) AS content_count
 FROM netflix
 GROUP BY release_year
-ORDER BY release_year;
+ORDER BY release_year DESC;
 
---Find all TV shows starring actor 'Robert Downey Jr.'
+--Find all TV made in China'
 
 SELECT * 
 FROM netflix 
 WHERE type = 'TV Show' 
-  AND casts LIKE '%Robert Downey Jr.%';
+  AND country LIKE '%China%'
 
 --Find movies that are rated PG-13 and were released after 2015
 
@@ -27,12 +27,12 @@ WHERE type = 'Movie'
   AND rating = 'PG-13' 
   AND release_year > 2015;
 
---Find all movies and TV shows that contain the genre "Horror" and were added in the last 2 years
+--Find all movies and TV shows that contain the genre "Horror" and were added in the last 5 years
 
 SELECT * 
 FROM netflix 
 WHERE listed_in LIKE '%Horror%' 
-  AND release_year >= YEAR(CURDATE()) - 2;
+  AND release_year >= YEAR(CURDATE()) - 5;
 
 
 --Find the Most Common Rating for Movies and TV Shows
@@ -110,7 +110,7 @@ SELECT
     UNNEST(STRING_TO_ARRAY(casts, ',')) AS actor,
     COUNT(*)
 FROM netflix
-WHERE country = 'USA'
+WHERE country = 'United States'
 GROUP BY actor
 ORDER BY COUNT(*) DESC
 LIMIT 10;
